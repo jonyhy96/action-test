@@ -39,7 +39,7 @@ jobs:
 
     - name: Chek use of default env
       run: |
-        echo ${{ GITHUB_REPOSITORY }}
+        echo GITHUB_REPOSITORY
         
     - name: build and push image
       uses: docker://jonyhy/lgtm-action:v1
