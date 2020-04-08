@@ -37,6 +37,10 @@ jobs:
         MATRIX_CONTEXT: ${{ toJson(matrix) }}
       run: echo "$MATRIX_CONTEXT"
 
+    - name: Chek use of default env
+      run: |
+        echo ${{ GITHUB_REPOSITORY }}
+        
     - name: build and push image
       uses: docker://jonyhy/lgtm-action:v1
       with:
