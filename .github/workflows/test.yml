@@ -1,0 +1,44 @@
+name: release latest
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+env:
+  GO111MODULE: on
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: run lint
+      run: echo "lint"
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    needs:
+      - lint
+    steps:
+
+    - name: Set up Go 1.13
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.13
+      id: go
+
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v2
+
+    - name: Get dependencies
+      run: echo "go mod download"
+
+    - name: Build
+      run: echo "build"
+
+    - name: Run Go test
+      run: echo "test"
