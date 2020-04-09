@@ -1,4 +1,4 @@
-name: release latest
+name: test yml
 
 on:
   pull_request:
