@@ -1,7 +1,7 @@
 name: test action dump 
 
 on:
-  pull_request_review_comment:
+  issue_comment:
 
 jobs:
   build-and-push:
