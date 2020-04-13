@@ -1,11 +1,11 @@
-name: test action 
+name: test action dump 
 
 on:
-  pull_request_review:
-  issue_comment:
+  pull_request_review_comment:
 
 jobs:
   build-and-push:
+    if: ${{ contains(github.event.comment.body, '/ci') && !contains(github.event.head_commit.message, 'WIP') }}
     runs-on: ubuntu-16.04
     timeout-minutes: 3
     steps:
