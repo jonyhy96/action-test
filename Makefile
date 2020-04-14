@@ -1,7 +1,9 @@
+#! /usr/bin/make -f
+
 SHELL := /bin/bash
 
 .PHONY: swagger
 swagger:
 	echo ${PATH}
-	ls ~/go/bin
+	ls
 	swag -v
