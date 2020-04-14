@@ -2,4 +2,5 @@
 
 .PHONY: swagger
 swagger:
+	echo ${PATH}
 	swag -v
