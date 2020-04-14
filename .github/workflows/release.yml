@@ -12,8 +12,22 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
+    - name: Set up Go 1.13
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.13
+      id: go
+
+    - name: Set up go binary path
+      run: echo "::add-path::~/go/bin"
+
     - name: Checkout
       uses: actions/checkout@v2
+      
+    - name: Generate swagger document
+      run: |
+        go get -v -u github.com/swaggo/swag/cmd/swag
+        swag -v
 
     - name: build and push image
       run: echo "build and push"
