@@ -66,7 +66,7 @@ jobs:
     - name: Generate swagger document
       run: |
         go get -v -u github.com/swaggo/swag/cmd/swag
-        swag -v
+        make swagger
               
     - name: build and push image
       run: echo release
